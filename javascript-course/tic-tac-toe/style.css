@@ -1,0 +1,449 @@
+/* ── Design Tokens ─────────────────────────────────────────── */
+:root {
+  --ground:     #F4F3EF;
+  --text:       #17171A;
+  --muted:      #6B6966;
+  --accent-x:   #E63946;
+  --accent-o:   #2563EB;
+  --grid-line:  #C5C3BC;
+  --cell-hover: #ECEAE4;
+  --white:      #FFFFFF;
+
+  --board-size: clamp(280px, 84vmin, 480px);
+  --gap:        3px;
+  --radius:     4px;
+}
+
+/* ── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: var(--ground);
+  color: var(--text);
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Screens ───────────────────────────────────────────────── */
+.screen {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+}
+
+.hidden { display: none !important; }
+
+/* ── Setup ─────────────────────────────────────────────────── */
+.setup-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  max-width: 780px;
+  width: 100%;
+  align-items: center;
+}
+
+@media (max-width: 580px) {
+  .setup-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* Title */
+.game-title {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-style: italic;
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  line-height: 0.87;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.title-word { display: block; }
+.title-accent { color: var(--accent-x); }
+.title-indent { padding-left: 1.25rem; }
+
+.game-tagline {
+  margin-top: 1.75rem;
+  font-family: 'Courier New', 'Courier', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Form area */
+.setup-form-area {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.player-field {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  background: var(--white);
+  border: 2px solid var(--grid-line);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  transition: border-color 0.15s ease;
+}
+
+.player-field:focus-within {
+  border-color: var(--text);
+}
+
+.field-mark {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.field-icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.player-field input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1rem;
+  color: var(--text);
+  font-family: system-ui, -apple-system, sans-serif;
+  width: 100%;
+}
+
+.player-field input::placeholder {
+  color: var(--grid-line);
+}
+
+.vs-row {
+  text-align: center;
+  padding: 0.125rem 0;
+}
+
+.vs-text {
+  font-family: 'Courier New', monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── Buttons ───────────────────────────────────────────────── */
+.btn-primary {
+  background: var(--text);
+  color: var(--ground);
+  border: 2px solid var(--text);
+  border-radius: var(--radius);
+  padding: 0.875rem 1.5rem;
+  font-size: 0.9375rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  width: 100%;
+  margin-top: 0.375rem;
+}
+
+.btn-primary:hover {
+  background: var(--ground);
+  color: var(--text);
+}
+
+.btn-primary:focus-visible {
+  outline: 3px solid var(--accent-x);
+  outline-offset: 2px;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--muted);
+  border: none;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  cursor: pointer;
+  border-radius: var(--radius);
+  transition: color 0.15s;
+}
+
+.btn-ghost:hover {
+  color: var(--text);
+}
+
+.btn-ghost:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+
+/* ── Game Screen ───────────────────────────────────────────── */
+#game-screen {
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.game-header {
+  width: 100%;
+  max-width: calc(var(--board-size) + 2rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.turn-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.125rem;
+}
+
+.turn-label {
+  font-family: 'Courier New', monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.turn-name {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--text);
+  transition: color 0.2s ease;
+  line-height: 1.2;
+}
+
+/* ── Board ─────────────────────────────────────────────────── */
+.board-container {
+  display: flex;
+  justify-content: center;
+}
+
+.board {
+  width: var(--board-size);
+  height: var(--board-size);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: var(--gap);
+  background: var(--grid-line);
+  border: var(--gap) solid var(--grid-line);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* ── Cell ──────────────────────────────────────────────────── */
+.cell {
+  background: var(--ground);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: background 0.1s ease;
+}
+
+.cell:hover:not(.taken) {
+  background: var(--cell-hover);
+}
+
+.cell.taken {
+  cursor: default;
+}
+
+.cell:focus-visible {
+  outline: 3px solid var(--text);
+  outline-offset: -3px;
+  z-index: 1;
+}
+
+/* ── Mark SVGs ─────────────────────────────────────────────── */
+.cell-svg {
+  width: 52%;
+  height: 52%;
+  position: absolute;
+  pointer-events: none;
+  overflow: visible;
+}
+
+/* X strokes — draw sequentially */
+.x-line-1,
+.x-line-2 {
+  fill: none;
+  stroke: var(--accent-x);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-dasharray: 46;
+  stroke-dashoffset: 46;
+}
+
+.x-line-1 {
+  animation: draw-stroke 0.2s ease-out forwards;
+}
+
+.x-line-2 {
+  animation: draw-stroke 0.2s ease-out 0.14s forwards;
+}
+
+@keyframes draw-stroke {
+  to { stroke-dashoffset: 0; }
+}
+
+/* O circle — traces from top */
+.o-ring {
+  fill: none;
+  stroke: var(--accent-o);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-dasharray: 101;
+  stroke-dashoffset: 101;
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: rotate(-90deg);
+  animation: draw-circle 0.35s ease-out forwards;
+}
+
+@keyframes draw-circle {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Winning cells */
+.cell.win {
+  background: var(--ground);
+}
+
+.cell.win .x-line-1,
+.cell.win .x-line-2 {
+  filter: drop-shadow(0 0 5px rgba(230, 57, 70, 0.45));
+}
+
+.cell.win .o-ring {
+  filter: drop-shadow(0 0 5px rgba(37, 99, 235, 0.45));
+}
+
+/* ── Scoreboard ────────────────────────────────────────────── */
+.game-footer {
+  width: 100%;
+  max-width: calc(var(--board-size) + 2rem);
+}
+
+.scoreboard {
+  display: flex;
+  align-items: stretch;
+  background: var(--white);
+  border: 2px solid var(--grid-line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.score-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 1rem;
+}
+
+.score-label {
+  font-family: 'Courier New', monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.score-value {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.score-x .score-value { color: var(--accent-x); }
+.score-o .score-value { color: var(--accent-o); }
+
+.score-sep {
+  width: 2px;
+  background: var(--grid-line);
+  align-self: stretch;
+}
+
+/* ── Result Overlay ────────────────────────────────────────── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(244, 243, 239, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 2rem;
+}
+
+.result-card {
+  background: var(--white);
+  border: 2px solid var(--grid-line);
+  border-radius: 8px;
+  padding: 3rem 2.5rem;
+  text-align: center;
+  max-width: 300px;
+  width: 100%;
+}
+
+.result-icon {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 1.5rem;
+}
+
+.result-message {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--text);
+  line-height: 1.3;
+  margin-bottom: 2rem;
+}
+
+.result-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.result-actions .btn-primary {
+  margin-top: 0;
+}
+
+/* ── Reduced Motion ────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .x-line-1,
+  .x-line-2,
+  .o-ring {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
