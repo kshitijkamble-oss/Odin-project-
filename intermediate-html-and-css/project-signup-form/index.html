@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up - Odin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Norse+Bold&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- left sidebar with background image -->
+        <div class="sidebar">
+            <div class="logo-overlay">
+                <img src="https://cdn.theodinproject.com/assets/odin-icon-b5d3a614c9e93.png" alt="odin logo" class="odin-logo">
+                <h1 class="logo-text">Odin</h1>
+            </div>
+            <p class="photo-credit">Photo by <a href="#">Luca Bravo</a> on Unsplash</p>
+        </div>
+        <!-- end sidebar -->
+
+        <!-- right form section -->
+        <div class="form-section">
+
+            <div class="form-intro">
+                <h2>Let's make it official.</h2>
+                <p>Sign up today to begin your journey with The Odin Project — free, forever.</p>
+            </div>
+
+            <!-- BUG: method should be "post" for sending passwords, not "get" -->
+            <form action="#" method="get" class="signup-form">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="first-name">First Name</label>
+                        <input type="text" id="first-name" name="first_name" placeholder="John" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last Name</label>
+                        <input type="text" id="last-name" name="last_name" placeholder="Smith" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <!-- BUG: missing required attribute on phone field, label implies it's needed -->
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Create a password" required minlength="8">
+                    </div>
+                    <div class="form-group">
+                        <!-- BUG: label for="confirm-password" but input id="confirmPassword" — mismatch, clicking label doesn't focus input -->
+                        <label for="confirm-password">Confirm Password</label>
+                        <!-- BUG: type="text" exposes password as plain text -->
+                        <input type="text" id="confirmPassword" name="confirm_password" placeholder="Repeat your password" required minlength="8">
+                    </div>
+                </div>
+
+                <button type="submit" class="create-btn">Create Account</button>
+
+            </form>
+
+            <p class="login-prompt">Already have an account? <a href="#">Log in</a></p>
+
+        </div>
+        <!-- end form section -->
+
+    </div>
+
+</body>
+</html>

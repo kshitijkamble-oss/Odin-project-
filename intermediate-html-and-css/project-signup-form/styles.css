@@ -1,0 +1,182 @@
+/* BUG: linking to styles.css but HTML links href="styles.css" — actually matches, but the Norse Bold
+   font won't load from Google Fonts (it's not available there), so logo font falls back to default */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* ── Sidebar ── */
+
+.sidebar {
+    width: 35%;
+    position: relative;
+    /* BUG: typo in folder name — "image" instead of "images", so background won't load */
+    background-image: url('image/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-color: #4a7c59; /* fallback color shows instead of image */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-overlay {
+    background-color: rgba(0, 0, 0, 0.55);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+}
+
+.odin-logo {
+    width: 70px;
+    height: 70px;
+    filter: invert(1);
+}
+
+.logo-text {
+    font-family: 'Norse Bold', serif;
+    font-size: 4rem;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+.photo-credit {
+    position: absolute;
+    bottom: 16px;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.7);
+}
+
+.photo-credit a {
+    color: rgba(255,255,255,0.85);
+}
+
+/* ── Form Section ── */
+
+.form-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 80px;
+    overflow-y: auto;
+}
+
+.form-intro {
+    margin-bottom: 36px;
+}
+
+.form-intro h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+.form-intro p {
+    color: #555;
+    font-size: 1rem;
+}
+
+.signup-form {
+    max-width: 600px;
+}
+
+.form-row {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* BUG: one of the form-groups has no bottom spacing because the margin is on .form-row,
+   but if someone adds a lone form-group outside a row it'll have no spacing */
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group input {
+    padding: 10px 14px;
+    border: 1px solid #E5E7EB;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    color: #1a1a1a;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+}
+
+/* focus state — correct */
+.form-group input:focus {
+    border-color: #4a90d9;
+    box-shadow: 0 0 0 3px rgba(74, 144, 217, 0.2);
+}
+
+/* BUG: using :invalid instead of :user-invalid — this fires immediately on page load
+   for all required empty fields, so everything starts red before the user touches anything */
+.form-group input:invalid {
+    border-color: #e74c3c;
+}
+
+/* Create Account button */
+
+.create-btn {
+    margin-top: 12px;
+    padding: 14px 36px;
+    background-color: #596D48;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    /* BUG: no transition, so hover is abrupt */
+}
+
+/* BUG: hover changes text color to the same green as bg, effectively invisible text */
+.create-btn:hover {
+    background-color: #4a5c3a;
+    color: #596D48;
+}
+
+.login-prompt {
+    margin-top: 28px;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.login-prompt a {
+    color: #596D48;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.login-prompt a:hover {
+    text-decoration: underline;
+}

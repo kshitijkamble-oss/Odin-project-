@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <h2>Odin Admin</h2>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">&#9632; Dashboard</a></li>
+                    <li><a href="#">&#128193; Projects <span class="badge">12</span></a></li>
+                    <li><a href="#">&#128100; Team</a></li>
+                    <li><a href="#">&#128172; Messages <span class="badge red">3</span></a></li>
+                    <li><a href="#">&#10003; Tasks</a></li>
+                    <li><a href="#">&#128202; Analytics</a></li>
+                    <li><a href="#">&#128197; Schedule</a></li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="#">&#9881; Settings</a>
+                <div class="user-info">
+                    <div class="avatar">KK</div>
+                    <div>
+                        <p class="user-name">Kshitij K.</p>
+                        <p class="user-role">Admin</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end sidebar -->
+
+        <!-- main content -->
+        <div class="main-content">
+
+            <!-- header -->
+            <div class="header">
+                <div class="search-bar">
+                    <input type="text" placeholder="&#128269; Search...">
+                </div>
+                <div class="header-right">
+                    <button class="notif-btn">&#128276; <span class="dot"></span></button>
+                    <div class="header-user">
+                        <div class="avatar">KK</div>
+                        <span>Kshitij Kamble</span>
+                    </div>
+                </div>
+            </div>
+            <!-- end header -->
+
+            <!-- page content -->
+            <div class="page-content">
+
+                <div class="page-title">
+                    <h1>Good morning, Kshitij!</h1>
+                    <p>Here's what's happening with your projects today.</p>
+                    <button class="new-project-btn">+ New Project</button>
+                </div>
+
+                <!-- stats -->
+                <div class="stats-row">
+                    <div class="stat-box">
+                        <p class="stat-number">12</p>
+                        <p class="stat-label">Active Projects</p>
+                        <p class="stat-change green-text">+2 this week</p>
+                    </div>
+                    <div class="stat-box">
+                        <p class="stat-number">48</p>
+                        <p class="stat-label">Tasks Completed</p>
+                        <p class="stat-change green-text">+12 this week</p>
+                    </div>
+                    <div class="stat-box">
+                        <p class="stat-number">8</p>
+                        <p class="stat-label">Team Members</p>
+                        <p class="stat-change">No change</p>
+                    </div>
+                    <div class="stat-box">
+                        <p class="stat-number">142</p>
+                        <p class="stat-label">Hours Logged</p>
+                        <p class="stat-change green-text">+18 this week</p>
+                    </div>
+                </div>
+                <!-- end stats -->
+
+                <!-- projects and side panels -->
+                <div class="content-row">
+
+                    <!-- projects section -->
+                    <div class="projects-section">
+                        <div class="section-header">
+                            <h2>Projects</h2>
+                            <a href="#">View all</a>
+                        </div>
+
+                        <div class="projects-grid">
+
+                            <div class="project-card">
+                                <div class="project-top">
+                                    <span class="project-tag">UI / UX</span>
+                                    <span class="priority high">High</span>
+                                </div>
+                                <h3>Dashboard Redesign</h3>
+                                <p>Modernising admin interface with the new Odin design system.</p>
+                                <div class="progress-section">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 75%"></div>
+                                    </div>
+                                    <span>75%</span>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="team-avatars">
+                                        <div class="avatar small av1">SK</div>
+                                        <div class="avatar small av2">MR</div>
+                                        <div class="avatar small av3">JP</div>
+                                    </div>
+                                    <p class="due-date">Due Jan 28</p>
+                                </div>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-top">
+                                    <span class="project-tag">Backend</span>
+                                    <span class="priority medium">Medium</span>
+                                </div>
+                                <h3>API Integration</h3>
+                                <p>Connecting third-party services and building internal REST endpoints.</p>
+                                <div class="progress-section">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 40%"></div>
+                                    </div>
+                                    <span>40%</span>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="team-avatars">
+                                        <div class="avatar small av4">AR</div>
+                                        <div class="avatar small av5">NL</div>
+                                    </div>
+                                    <p class="due-date">Due Feb 10</p>
+                                </div>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-top">
+                                    <span class="project-tag">Mobile</span>
+                                    <span class="priority high">High</span>
+                                </div>
+                                <h3>Mobile App v2</h3>
+                                <p>Native iOS & Android rebuild with offline-first architecture.</p>
+                                <div class="progress-section">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 60%"></div>
+                                    </div>
+                                    <span>60%</span>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="team-avatars">
+                                        <div class="avatar small av2">MR</div>
+                                        <div class="avatar small av6">TW</div>
+                                        <div class="avatar small av1">SK</div>
+                                    </div>
+                                    <p class="due-date">Due Feb 5</p>
+                                </div>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-top">
+                                    <span class="project-tag">Frontend</span>
+                                    <span class="priority low">Low</span>
+                                </div>
+                                <h3>Marketing Site</h3>
+                                <p>Public landing page refresh with updated copy and hero visuals.</p>
+                                <div class="progress-section">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 90%"></div>
+                                    </div>
+                                    <span>90%</span>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="team-avatars">
+                                        <div class="avatar small av3">JP</div>
+                                    </div>
+                                    <p class="due-date">Due Jan 22</p>
+                                </div>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-top">
+                                    <span class="project-tag">Security</span>
+                                    <span class="priority high">High</span>
+                                </div>
+                                <h3>Auth System</h3>
+                                <p>Migrating to OAuth 2.0 with MFA and session management overhaul.</p>
+                                <div class="progress-section">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 25%"></div>
+                                    </div>
+                                    <span>25%</span>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="team-avatars">
+                                        <div class="avatar small av5">NL</div>
+                                        <div class="avatar small av4">AR</div>
+                                    </div>
+                                    <p class="due-date">Due Mar 1</p>
+                                </div>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-top">
+                                    <span class="project-tag">Data</span>
+                                    <span class="priority medium">Medium</span>
+                                </div>
+                                <h3>Data Pipeline</h3>
+                                <p>Automated ETL pipeline for analytics reporting and BI integration.</p>
+                                <div class="progress-section">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 55%"></div>
+                                    </div>
+                                    <span>55%</span>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="team-avatars">
+                                        <div class="avatar small av6">TW</div>
+                                        <div class="avatar small av7">EC</div>
+                                    </div>
+                                    <p class="due-date">Due Feb 20</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- end projects section -->
+
+                    <!-- side panels -->
+                    <div class="side-panels">
+
+                        <!-- announcements -->
+                        <div class="panel">
+                            <div class="section-header">
+                                <h2>Announcements</h2>
+                                <a href="#">See all</a>
+                            </div>
+                            <div class="announcement-list">
+
+                                <div class="announcement">
+                                    <h4>New sprint starts Monday</h4>
+                                    <p class="ann-time">2 days ago</p>
+                                    <p>Q1 planning is locked. Sprint 12 kicks off January 15 — check the board for your assigned tickets and flag blockers before Friday's standup.</p>
+                                </div>
+
+                                <div class="announcement">
+                                    <h4>Design review at 2 PM today</h4>
+                                    <p class="ann-time">5 hrs ago</p>
+                                    <p>All stakeholders required for the dashboard wireframe walkthrough. Deck is in the shared drive — leave comments before the meeting.</p>
+                                </div>
+
+                                <div class="announcement">
+                                    <h4>Code freeze tomorrow 6 PM</h4>
+                                    <p class="ann-time">1 hr ago</p>
+                                    <p>No commits to main after 6 PM. Hotfixes require sign-off from two reviewers. Deployment window opens next Wednesday.</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- end announcements -->
+
+                        <!-- trending -->
+                        <div class="panel">
+                            <div class="section-header">
+                                <h2>Trending</h2>
+                            </div>
+                            <ul class="trending-list">
+
+                                <li class="trending-item">
+                                    <div class="avatar tr1">SC</div>
+                                    <div>
+                                        <p><strong>Sarah Chen</strong> <span class="handle">@sarahchen</span></p>
+                                        <p class="trend-text">Completed dashboard wireframes 3 days ahead of schedule.</p>
+                                    </div>
+                                </li>
+
+                                <li class="trending-item">
+                                    <div class="avatar tr2">MD</div>
+                                    <div>
+                                        <p><strong>Mark Davis</strong> <span class="handle">@markdavis</span></p>
+                                        <p class="trend-text">Merged 12 PRs this week — a new team record.</p>
+                                    </div>
+                                </li>
+
+                                <li class="trending-item">
+                                    <div class="avatar tr3">JK</div>
+                                    <div>
+                                        <p><strong>Julia Kim</strong> <span class="handle">@juliakim</span></p>
+                                        <p class="trend-text">Leading the API documentation refactor across 4 services.</p>
+                                    </div>
+                                </li>
+
+                                <li class="trending-item">
+                                    <div class="avatar tr4">AW</div>
+                                    <div>
+                                        <p><strong>Alex Wong</strong> <span class="handle">@alexwong</span></p>
+                                        <p class="trend-text">Patched the critical auth bypass — zero downtime.</p>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <!-- end trending -->
+
+                    </div>
+                    <!-- end side panels -->
+
+                </div>
+                <!-- end content row -->
+
+            </div>
+            <!-- end page content -->
+
+        </div>
+        <!-- end main content -->
+
+    </div>
+    <!-- end container -->
+
+</body>
+</html>
